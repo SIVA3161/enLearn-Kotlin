@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/tab1" />
+
+    <item
+        android:id="@+id/navigation_videos"
+        android:icon="@drawable/ic_baseline_play_circle_filled_24"
+        android:title="@string/tab2" />
+
+    <item
+        android:id="@+id/navigation_inbox"
+        android:icon="@drawable/ic_baseline_mark_email_unread_24"
+        android:title="@string/tab3" />
+
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/tab4" />
+
+</menu>

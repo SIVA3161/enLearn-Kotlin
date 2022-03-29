@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">enLearn</string>
+
+    <!--        Bottom Nav Tabs         -->
+    <string name="tab1">Home</string>
+    <string name="tab2">Videos</string>
+    <string name="tab3">Inbox</string>
+    <string name="tab4">Account</string>
+
+    <!--        Status strings          -->
+    <string name="network_status">Offline</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+
+</resources>

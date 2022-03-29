@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+      <!-- Base application theme. -->
+    <style name="Theme.EnLearn" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+    <declare-styleable name="BgColor" >
+        <attr name="backgroundColor" format="color" />
+        <attr name="itemFillColor" format="color" />
+        <attr name="rotate" format="boolean" />
+    </declare-styleable>
+</resources>
