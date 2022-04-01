@@ -6,10 +6,10 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/tab1" />
 
-    <item
-        android:id="@+id/navigation_videos"
-        android:icon="@drawable/ic_baseline_play_circle_filled_24"
-        android:title="@string/tab2" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_videos"-->
+<!--        android:icon="@drawable/ic_baseline_play_circle_filled_24"-->
+<!--        android:title="@string/tab2" />-->
 
     <item
         android:id="@+id/navigation_inbox"
