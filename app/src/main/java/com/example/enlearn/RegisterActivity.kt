@@ -12,7 +12,10 @@ import android.util.Patterns
 import android.widget.Toast
 import com.example.enlearn.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class RegisterActivity : AppCompatActivity() {
     //viewBinding for SignUp registration
@@ -20,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private var regUserName = ""
+    private var regUserFullName = ""
     private var regUserEmail = ""
     private var regUserPwd = ""
     private var regGender = ""
@@ -43,29 +46,17 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         genderFunc()
-
         binding.button.setOnClickListener {
             validateDate()
         }
     }
 
-    private fun genderFunc() {
-        radioGrp.setOnCheckedChangeListener { group, checkedId ->
-            if(checkedId == R.id.radioM) {
-                regGender = radioM.text.toString()
-                Toast.makeText(applicationContext,radioM.text.toString(),Toast.LENGTH_SHORT).show()
-            } else if (checkedId == R.id.radioF) {
-                regGender = radioF.text.toString()
-                Toast.makeText(applicationContext,radioF.text.toString(),Toast.LENGTH_SHORT).show()
-            }
-
-        }
-    }
 
     private fun validateDate() {
-        regUserName = binding.regUserNameTip.text.toString().trim()
+        regUserFullName = binding.regUserNameTip.text.toString().trim()
         regUserEmail = binding.regUserEmailTip.text.toString().trim()
         regUserPwd = binding.regUserPwdTip.text.toString().trim()
+        genderFunc()
 
         if (!Patterns.EMAIL_ADDRESS.matcher(regUserEmail).matches()) {
             binding.regUserEmailTip.error = "Invalid Email format"
@@ -73,6 +64,8 @@ class RegisterActivity : AppCompatActivity() {
             binding.regUserPwdTip.error = "Please enter password"
         } else if(regUserPwd.length < 6) {
             binding.regUserPwdTip.error = "Password must be atleast 6 charecters long "
+        } else if(regGender.isEmpty()) {
+            Toast.makeText(applicationContext, "Gender must be selected", Toast.LENGTH_LONG).show()
         } else {
             firebaseSignUp()
         }
@@ -88,17 +81,53 @@ class RegisterActivity : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"You've created your \naccount with an email ${email}",Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, MainActivity::class.java))
-                intent.putExtra("UserFullName",regUserName)
-                intent.putExtra("UserEmail",regUserEmail)
-                intent.putExtra("UserGender",regGender)
-                finish()
+                updateToUserDB()
             }
             .addOnFailureListener { e->
                 progressDialog.dismiss()
                 Toast.makeText(this,"Registration failed due to ${e.message}", Toast.LENGTH_LONG).show()
-
             }
+    }
+
+    private fun updateToUserDB() {
+        progressDialog.setMessage("Updating to your profile...")
+
+        val timeStamp = System.currentTimeMillis()
+        val userUID = firebaseAuth.uid
+
+        val userDataHashMap: HashMap<String, Any?> = HashMap()
+        userDataHashMap["uid"] = userUID
+        userDataHashMap["user_name"] = "UR${timeStamp.toString().dropLast(3)}"
+        userDataHashMap["full_name"] = regUserFullName
+        userDataHashMap["user_email"] = regUserEmail
+        userDataHashMap["profile_image"] = ""
+        userDataHashMap["user_gender"] = regGender
+        userDataHashMap["time_stamp"] = timeStamp
+        userDataHashMap["userType"] = "user"
+
+        val dbRef = FirebaseDatabase.getInstance().getReference("Users")
+        dbRef.child(userUID!!)
+            .setValue(userDataHashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+                Toast.makeText(this,"Saved successfuly", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this,"Failed saving user data due to ${e.message}", Toast.LENGTH_LONG).show()
+            }
+    }
+
+    private fun genderFunc() {
+        radioGrp.setOnCheckedChangeListener { group, checkedId ->
+            if(checkedId == R.id.radioM) {
+                regGender = radioM.text.toString()
+            } else if (checkedId == R.id.radioF) {
+                regGender = radioF.text.toString()
+            }
+        }
     }
 
     override fun onBackPressed() {

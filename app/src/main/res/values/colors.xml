@@ -27,7 +27,7 @@
     <color name="primaryTextColor">#FF6200EE</color>
 
     <color name="colorPrimary">#3052FF</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#E91C66FA</color>
     <color name="colorAccent">#FF4081</color>
     <!-- colors for profile -->
     <color name="profilePrimaryDark">#FF3B30</color>
