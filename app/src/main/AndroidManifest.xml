@@ -4,7 +4,8 @@
     package="com.example.enlearn">
 
     <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -32,6 +33,9 @@
             android:exported="true"/>
         <activity
             android:name=".MainActivity"
+            android:exported="true"/>
+
+        <activity android:name=".AdminDashBoardActivity"
             android:exported="true"/>
 
         <meta-data

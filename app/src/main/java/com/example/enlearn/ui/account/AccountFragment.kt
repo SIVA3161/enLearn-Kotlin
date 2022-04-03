@@ -1,6 +1,5 @@
 package com.example.enlearn.ui.account
 
-import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,22 +13,21 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class AccountFragment : Fragment() {
-
     private lateinit var accountViewModel: AccountViewModel
-    private var _binding: FragmentAccountBinding? = null
+    private var binding: FragmentAccountBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+//    private val binding get() = _binding!!
 
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//
-//        accountDetailRender()
-//        toLogOut()
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding?.userLogOutBtn?.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,30 +37,31 @@ class AccountFragment : Fragment() {
         accountViewModel =
             ViewModelProvider(this).get(AccountViewModel::class.java)
 
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
+        val root: View = binding!!.root
 
-        val textView: TextView = binding.titleAccount
+        val dtvUserName: TextView = binding!!.dtvUserName
         accountViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            dtvUserName.text = it
+        })
+
+        val dtvUserEmail: TextView = binding!!.dtvUserEmail
+        accountViewModel.dtvUserEmail.observe(viewLifecycleOwner, Observer {
+            dtvUserEmail.text = it
+
         })
         return root
+
 
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 
-    private fun accountDetailRender() {
 
-    }
 
-    private fun toLogOut() {
-       binding.logOutBtn.setOnClickListener {
-           FirebaseAuth.getInstance().signOut()
-       }
-    }
+
 
 }

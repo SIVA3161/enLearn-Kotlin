@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class InboxViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is inbox Fragment"
+        value = "You have no more recent messages!"
     }
     val text: LiveData<String> = _text
 }

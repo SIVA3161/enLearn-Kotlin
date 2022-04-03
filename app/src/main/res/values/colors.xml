@@ -35,4 +35,6 @@
     <color name="profileBackground">#fff</color>
     <color name="blackTextColor">#000</color>
     <color name="profileEditTextColor">#707070</color>
+    <color name="online_color">#2EE136</color>
+    <color name="offline_color">#FF0000</color>
 </resources>

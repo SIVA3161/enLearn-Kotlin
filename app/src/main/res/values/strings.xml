@@ -22,5 +22,12 @@
 
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
+    <string name="text_admin">ADMIN</string>
+    <string name="bluemoon_mock_email">developer@bluemoon.com</string>
+    <string name="bluemoon_mock_username">\@bluemoon</string>
+    <string name="splash_text">Please wait...\n we\'re getting things ready for you</string>
+    <string name="back_to_online">Back to online</string>
+    <string name="offline">check your internet connection</string>
+    <string name="whoops_internet_error">Whoops!\nPlease turn on your Internet Connection</string>
 
 </resources>

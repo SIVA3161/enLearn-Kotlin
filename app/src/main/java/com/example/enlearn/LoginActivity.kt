@@ -7,14 +7,16 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PatternMatcher
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.enlearn.databinding.ActivityLoginBinding
 import com.example.enlearn.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class LoginActivity : AppCompatActivity() {
@@ -42,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
+//        checkUser()
 
         binding.button.setOnClickListener{
             validateData()
@@ -70,8 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"Successfully LoggedIn as $email",Toast.LENGTH_LONG).show()
-                startActivity(Intent(this,MainActivity::class.java))
-                finish()
+                routeUser()
             }
             .addOnFailureListener { e->
                 progressDialog.dismiss()
@@ -81,11 +82,45 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
-        FirebaseAuth.getInstance().signOut()
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null) {
-            startActivity(Intent(this,HomeFragment::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
+    }
+
+    private fun routeUser() {
+        progressDialog.setMessage("Checking User...")
+
+        val firebaseUser = firebaseAuth.currentUser
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        firebaseUser?.let {
+            ref.child(it.uid)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        progressDialog.dismiss()
+                        val userType = snapshot.child("userType").value
+
+                        when (userType) {
+                            "user" -> {
+                                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                                finish()
+                            }
+                            "admin" -> {
+                                startActivity(Intent(this@LoginActivity,AdminDashBoardActivity::class.java))
+                                finish()
+                            }
+                            else -> {
+                                return
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("NOT YET IMPLEMENTED")
+                    }
+                })
+        }
+
     }
 }
