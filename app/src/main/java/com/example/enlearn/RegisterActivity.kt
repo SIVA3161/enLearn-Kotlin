@@ -76,12 +76,11 @@ class RegisterActivity : AppCompatActivity() {
 
         firebaseAuth.createUserWithEmailAndPassword(regUserEmail,regUserPwd)
             .addOnSuccessListener {
-                progressDialog.dismiss()
-
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"You've created your \naccount with an email ${email}",Toast.LENGTH_LONG).show()
                 updateToUserDB()
+                progressDialog.dismiss()
             }
             .addOnFailureListener { e->
                 progressDialog.dismiss()
@@ -103,6 +102,7 @@ class RegisterActivity : AppCompatActivity() {
         userDataHashMap["profile_image"] = ""
         userDataHashMap["user_gender"] = regGender
         userDataHashMap["time_stamp"] = timeStamp
+        userDataHashMap["users_device_UUID"] = UUID.randomUUID().toString()
         userDataHashMap["userType"] = "user"
 
         val dbRef = FirebaseDatabase.getInstance().getReference("Users")

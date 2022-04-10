@@ -6,19 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ui.inbox.InboxFragment">
 
-
-    <TextView
-        android:id="@+id/txtInbox"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchCardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textSize="20sp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="@dimen/dp8"
+        android:layout_marginStart="@dimen/dp8"
+        android:layout_marginEnd="@dimen/dp8"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_marginBottom="@dimen/dp8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="Search your messages here..." />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchCardView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvInboxMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_inbox" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

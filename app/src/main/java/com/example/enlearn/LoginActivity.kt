@@ -10,8 +10,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
+import com.example.enlearn.admin.AdminDashBoardActivity
 import com.example.enlearn.databinding.ActivityLoginBinding
-import com.example.enlearn.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -68,11 +68,11 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
         firebaseAuth.signInWithEmailAndPassword(userEmail,userPwd)
             .addOnSuccessListener {
+                routeUser()
                 progressDialog.dismiss()
                 val firebaseUser = firebaseAuth.currentUser
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"Successfully LoggedIn as $email",Toast.LENGTH_LONG).show()
-                routeUser()
             }
             .addOnFailureListener { e->
                 progressDialog.dismiss()
@@ -107,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
                                 finish()
                             }
                             "admin" -> {
-                                startActivity(Intent(this@LoginActivity,AdminDashBoardActivity::class.java))
+                                startActivity(Intent(this@LoginActivity, AdminDashBoardActivity::class.java))
                                 finish()
                             }
                             else -> {
@@ -122,5 +122,11 @@ class LoginActivity : AppCompatActivity() {
                 })
         }
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right)
+        finishAffinity()
     }
 }

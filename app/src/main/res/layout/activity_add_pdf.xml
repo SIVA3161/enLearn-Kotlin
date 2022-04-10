@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AddPdfActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/blue_background_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginStart="@dimen/dp18"
+            android:layout_marginTop="@dimen/dp18"
+            android:background="?attr/actionBarItemBackground"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/back_button" />
+
+
+        <TextView
+            android:id="@+id/headlineCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp18"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/btnAttachment"
+            android:layout_toEndOf="@+id/backBtn"
+            android:gravity="center"
+            android:text="@string/add_a_new_book"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnAttachment"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp18"
+            android:layout_marginEnd="@dimen/dp18"
+            android:background="?attr/actionBarItemBackground"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/ic_attachment" />
+
+        <ImageButton
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50"
+            android:layout_alignStart="@+id/backBtn"
+            android:layout_alignEnd="@+id/btnAttachment"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="158dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginBottom="46dp"
+            android:padding="@dimen/dp5"
+            android:src="@mipmap/ic_launcher_enlearn_round" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titlePDFTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tipPdfTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_pdf_grey"
+            android:drawablePadding="6dp"
+            android:hint="@string/book_title"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descPDFTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlePDFTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tipPdfDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_pdf_grey"
+            android:drawablePadding="6dp"
+            android:hint="Book Desc"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvSelectedCategory"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_below="@id/descPDFTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/button_outline_rounded"
+        android:gravity="center"
+        android:padding="@dimen/dp10"
+        android:text="@string/selected_category"
+        app:drawableEndCompat="@drawable/ic_down_arrow_grey"
+        app:drawableStartCompat="@drawable/ic_category_grey" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSelectedCategory"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/login_btn_bg"
+        android:minHeight="50dp"
+        android:text="@string/upload"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

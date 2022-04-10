@@ -1,6 +1,6 @@
 package com.example.enlearn
 
-import android.animation.ObjectAnimator
+
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -10,17 +10,11 @@ import android.os.Bundle
 import android.os.Handler
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.enlearn.databinding.ActivityMainBinding
-import com.example.enlearn.databinding.FragmentAccountBinding
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_splash.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var userFullName: String? = null
     private var userEmail: String? = null
     private var userGender: String? = null
+    var NAVIGATE_TO_PAGE = ""
 
     private var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -51,20 +46,14 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_videos, R.id.navigation_inbox
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
 
 
 //        tvUserName.text = intent.getStringExtra("UserFullName") ?: ""
 //        tvEmail.text = intent.getStringExtra("UserEmail") ?: ""
 //        tvGender.text = intent.getStringExtra("UserGender") ?: ""
+        toLoginPage()
     }
 
     override fun onStart() {
@@ -95,6 +84,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun toLoginPage() {
+      NAVIGATE_TO_PAGE = intent.getStringExtra("NAVIGATE_TO_PAGE").toString()
+      when (NAVIGATE_TO_PAGE) {
+          "LOGIN_PAGE" -> {
+              startActivity(Intent(this,LoginActivity::class.java))
+              finish()
+          }
+          else -> return
+      }
+  }
 
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right)
+    }
 }

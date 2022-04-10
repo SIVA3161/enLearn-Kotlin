@@ -37,4 +37,9 @@
     <color name="profileEditTextColor">#707070</color>
     <color name="online_color">#2EE136</color>
     <color name="offline_color">#FF0000</color>
+    <color name="charcoal_grey">#424143</color>
+    <color name="greyish_brown">#4a4a4a</color>
+    <color name="silver">#cccccd</color>
+    <color name="blueLight">#ebeaf3</color>
+
 </resources>

@@ -1,24 +1,22 @@
 package com.example.enlearn
 
 import android.animation.ObjectAnimator
-import android.app.ProgressDialog
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.*
+import com.example.enlearn.admin.AdminDashBoardActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
@@ -96,7 +94,8 @@ class SplashActivity: AppCompatActivity() {
                                     finish()
                                 }
                                 "admin" -> {
-                                    startActivity(Intent(this@SplashActivity,AdminDashBoardActivity::class.java))
+                                    startActivity(Intent(this@SplashActivity,
+                                        AdminDashBoardActivity::class.java))
                                     finish()
                                 }
                                 else -> {

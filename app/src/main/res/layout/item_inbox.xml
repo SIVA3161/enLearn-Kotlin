@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/inboxIcon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_inbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/unreadIcon"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/circle_accent_border_white"
+            app:layout_constraintEnd_toEndOf="@id/inboxIcon"
+            app:layout_constraintTop_toTopOf="@id/inboxIcon" />
+
+        <TextView
+            android:id="@+id/tvInboxMsgTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/gotham_book"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/tvInboxMsgTimeStamp"
+            app:layout_constraintStart_toEndOf="@id/inboxIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="inboxMsgTitle" />
+
+        <TextView
+            android:id="@+id/tvInboxMsgTimeStamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/gotham_medium"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="22:22" />
+
+        <TextView
+            android:id="@+id/tvInboxMsgDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/gotham_book"
+            android:lineSpacingExtra="5sp"
+            android:maxLines="2"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/dropdownIndicator"
+            app:layout_constraintStart_toEndOf="@id/inboxIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvInboxMsgTitle"
+            tools:text="inboxMsgDesc" />
+
+        <ImageView
+            android:id="@+id/dropdownIndicator"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/ic_dropdown"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInboxMsgTimeStamp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mediaContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvInboxMsgDesc">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:visibility="gone"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgvInbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mediaContainer"
+            tools:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/copy_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bluelight_round_border"
+                    android:fontFamily="@font/gotham_medium"
+                    android:textColor="@color/charcoal_grey"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/link_button"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="COPY"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/link_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bluelight_round_border"
+                    android:fontFamily="@font/gotham_medium"
+                    android:textColor="@color/charcoal_grey"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/copy_button"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/blueLight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

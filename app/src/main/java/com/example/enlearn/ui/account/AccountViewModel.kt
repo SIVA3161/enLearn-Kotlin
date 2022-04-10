@@ -57,4 +57,8 @@ class AccountViewModel : ViewModel() {
 
     }
     val dtvUserEmail: LiveData<String> = _displayUsrEmail
+
+    fun getUsersData() {
+
+    }
 }
