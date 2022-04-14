@@ -4,12 +4,18 @@ package com.example.enlearn
 Created by Siva G Gurusamy on 19-12-2021-Dec'2021 at 09:16 AM
  **/
 import android.app.ProgressDialog
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.enlearn.admin.AdminDashBoardActivity
 import com.example.enlearn.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -17,6 +23,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -26,6 +33,18 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var userEmail = ""
     private var userPwd = ""
+    private var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            val notConnected = intent.getBooleanExtra(
+                ConnectivityManager
+                    .EXTRA_NO_CONNECTIVITY, false)
+            if (notConnected) {
+                disconnected()
+            } else {
+                connected()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +68,35 @@ class LoginActivity : AppCompatActivity() {
         binding.button.setOnClickListener{
             validateData()
         }
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        registerReceiver(broadcastReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(broadcastReceiver)
+    }
+
+    private fun disconnected() {
+        networkStatus.isVisible = true
+        dtvNetworkStatus.setTextColor(resources.getColor(R.color.profileAccentColor))
+        dtvNetworkStatus.text = getString(R.string.offline_login_reg_page)
+        networkStatus.setBackgroundColor(resources.getColor(R.color.profilePrimaryDark))
+    }
+
+    private fun connected() {
+        networkStatus.isVisible = true
+        dtvNetworkStatus.setTextColor(resources.getColor(R.color.black))
+        dtvNetworkStatus.text = getString(R.string.back_to_online)
+        networkStatus.setBackgroundColor(resources.getColor(R.color.online_color))
+        Handler().postDelayed({
+            networkStatus.isVisible = false
+        }, 2000)
+
     }
 
     private fun validateData() {

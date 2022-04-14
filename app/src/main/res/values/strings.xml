@@ -37,8 +37,21 @@
     <string name="tnusrb_prep_title">TNUSRB Prep</string>
     <string name="tnpsc_prep_title">TNPSC Prep</string>
     <string name="add_a_new_book">Add a new book</string>
-    <string name="selected_category">Selected Category</string>
+    <string name="select_category">Select Category</string>
     <string name="book_title">Book Title</string>
     <string name="upload">Upload</string>
+    <string name="profile_info">Profile Info</string>
+    <string name="dismiss_alert">CANCEL</string>
+    <string name="send_inbox_msg">Send Inbox Messages</string>
+    <string name="send">SEND</string>
+    <string name="msg_title">Message Title</string>
+    <string name="msg_desc">Message Description</string>
+    <string name="error_select_category">Kindly click to choose the category</string>
+    <string name="to">To</string>
+    <string name="error_not_attached_file">You\'ve not attached any file \n Kindly attach it by clicking top right corner icon</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="full_name">Update full name</string>
+    <string name="update_email">Update email</string>
+    <string name="offline_login_reg_page">Oops! Turn on your internet connection to login / register</string>
 
 </resources>

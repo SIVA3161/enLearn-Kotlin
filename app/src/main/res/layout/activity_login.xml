@@ -135,4 +135,27 @@
         app:layout_constraintEnd_toEndOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <LinearLayout
+        android:id="@+id/networkStatus"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#F31109"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/dtvNetworkStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/network_status"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

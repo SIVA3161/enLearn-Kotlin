@@ -5,6 +5,8 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_enlearn_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnLearn">
+        <activity
+            android:name=".admin.SendInboxMessageActivity"
+            android:exported="false" />
         <activity
             android:name=".admin.AddPdfActivity"
             android:exported="false" />

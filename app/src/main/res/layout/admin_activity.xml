@@ -14,7 +14,26 @@
 
 <!--    bottom controls   -->
 
+    <Button
+        android:id="@+id/btnSendInboxMsgs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_primary_round"
+        android:minHeight="50dp"
+        android:text="@string/send_inbox_msg"
+        android:textColor="@color/white"
+        android:paddingEnd="@dimen/dp30"
+        android:drawableEnd="@drawable/ic_send"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -29,21 +48,21 @@
             android:id="@+id/addCategoryBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp10"
             android:layout_weight="1"
-            android:textColor="@color/white"
             android:background="@drawable/button_primary_round"
             android:minHeight="50dp"
-            android:layout_marginEnd="@dimen/dp10"
-            android:text="@string/add_category" />
+            android:text="@string/add_category"
+            android:textColor="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAddPdf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorPrimaryDark"
-            app:fabCustomSize="50dp"
             android:src="@drawable/ic_pdf_white"
-            android:tint="@color/white"/>
+            android:tint="@color/white"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:fabCustomSize="50dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

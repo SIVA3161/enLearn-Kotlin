@@ -35,7 +35,7 @@
             android:layout_toStartOf="@+id/btnAttachment"
             android:layout_toEndOf="@+id/backBtn"
             android:gravity="center"
-            android:text="@string/add_a_new_book"
+            android:text="@string/send_inbox_msg"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -55,7 +55,7 @@
     </RelativeLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/titlePDFTil"
+        android:id="@+id/titleMsgTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relativeLayout2"
@@ -66,21 +66,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tipPdfTitle"
+            android:id="@+id/tipMsgTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_pdf_grey"
+            android:drawableStart="@drawable/ic_message"
             android:drawablePadding="6dp"
-            android:hint="@string/book_title"
+            android:hint="@string/msg_title"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/descPDFTil"
+        android:id="@+id/descMsgTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titlePDFTil"
+        android:layout_below="@+id/titleMsgTil"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
@@ -88,36 +88,36 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tipPdfDesc"
+            android:id="@+id/tipMsgDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_pdf_grey"
+            android:drawableStart="@drawable/ic_message"
             android:drawablePadding="6dp"
-            android:hint="Book Desc"
+            android:hint="@string/msg_desc"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/tvSelectedCategory"
+        android:id="@+id/tvReceiver"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"
-        android:layout_below="@id/descPDFTil"
+        android:layout_below="@id/descMsgTil"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/button_outline_rounded"
         android:gravity="center"
         android:padding="@dimen/dp10"
-        android:text="@string/select_category"
-        app:drawableEndCompat="@drawable/ic_down_arrow_grey"
-        app:drawableStartCompat="@drawable/ic_category_grey" />
+        android:text="@string/to"
+        app:drawableEndCompat="@drawable/ic_send_grey"
+        app:drawableStartCompat="@drawable/ic_person" />
 
     <Button
-        android:id="@+id/submitBtn"
+        android:id="@+id/sendBtn"
         android:layout_width="800dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSelectedCategory"
+        android:layout_below="@+id/tvReceiver"
         android:layout_gravity="center"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
@@ -125,8 +125,22 @@
         android:layout_weight="1"
         android:background="@drawable/login_btn_bg"
         android:minHeight="50dp"
-        android:text="@string/upload"
+        android:text="@string/send"
         android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/submitBtn"
+        android:layout_alignEnd="@+id/submitBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:visibility="gone"
+        android:layout_marginBottom="145dp"
+        android:gravity="center"
+        android:text="TextView" />
 
 
 </RelativeLayout>

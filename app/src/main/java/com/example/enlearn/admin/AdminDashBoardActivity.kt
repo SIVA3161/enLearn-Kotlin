@@ -48,6 +48,7 @@ class AdminDashBoardActivity: AppCompatActivity() {
         callAddCategoryBtmSheet()
         logOutAdmin()
         addPdfDetails()
+        sendInboxMsg()
     }
 
 
@@ -146,5 +147,19 @@ class AdminDashBoardActivity: AppCompatActivity() {
             startActivity(Intent(this, AddPdfActivity::class.java))
             finish()
         }
+    }
+
+    private fun sendInboxMsg() {
+        btnSendInboxMsgs.setOnClickListener {
+            val sendInboxMessageIntent = Intent(this, SendInboxMessageActivity::class.java)
+            startActivity(sendInboxMessageIntent)
+            finish()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right)
     }
 }

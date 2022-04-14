@@ -17,19 +17,28 @@
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/button_primary_round_enable.xml" value="0.2035" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/button_round_enable.xml" value="0.236" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/circle_accent_border_white.xml" value="0.1665" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/circle_white_rounded_bg.xml" value="0.139" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/dialog_all_rounded_bg.xml" value="0.1435" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/dialog_rounded_bg.xml" value="0.2035" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/edit_text_background.xml" value="0.137" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_attachment.xml" value="0.1945" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_back_black.xml" value="0.1435" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_box_logout.xml" value="0.139" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_camera.xml" value="0.2125" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_category.xml" value="0.204" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_dropdown.xml" value="0.1665" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_email.xml" value="0.239" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.139" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_inbox.xml" value="0.1665" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_lock.xml" value="0.236" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_login_bg.xml" value="0.236" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_login_hero.xml" value="0.236" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_person.xml" value="0.1695" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_send.xml" value="0.1695" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/ic_send_grey.xml" value="0.1695" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/login_btn_bg.xml" value="0.236" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/profile_bk.xml" value="0.236" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/round_outline_error.xml" value="0.1695" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/rounded_outline.xml" value="0.137" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/drawable/rounded_outline_enabled.xml" value="0.137" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout-w936dp/add_category_btm_sheet_content.xml" value="0.264" />
@@ -38,12 +47,14 @@
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/activity_send_inbox_message.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/add_category_btm_sheet_content.xml" value="0.2" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/add_category_dialog.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/admin_activity.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/back_btn.xml" value="0.25" />
-        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/content_profile.xml" value="0.25" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/content_profile.xml" value="0.536" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/edit_profile_dialog.xml" value="0.264" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/feed_inbox.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/fragment_account.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/fragment_home.xml" value="0.2" />
@@ -52,6 +63,7 @@
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/item_feed_contents.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/item_feed_rv_horizontal.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/item_inbox.xml" value="0.25" />
+        <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/prompt_dialog.xml" value="0.136" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/searchbar_layout.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/layout/tool_bar.xml" value="0.25" />
         <entry key="..\:/Users/siva/AndroidStudioProjects/Sakthi Project for eduByte/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />

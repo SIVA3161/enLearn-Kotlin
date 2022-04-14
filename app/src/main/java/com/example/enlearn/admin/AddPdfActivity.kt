@@ -2,10 +2,12 @@ package com.example.enlearn.admin
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Vibrator
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -20,6 +22,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_add_pdf.*
 
 class AddPdfActivity : AppCompatActivity() {
@@ -31,6 +34,8 @@ class AddPdfActivity : AppCompatActivity() {
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
     private var pdfUri: Uri? = null
     private var TAG = "PDF_ADD_TAG"
+    private var KEY = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +50,28 @@ class AddPdfActivity : AppCompatActivity() {
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
+        pdfActivityView()
         goBack()
 
+     
+    }
+    
+//    private fun renderView(){
+//        when(KEY) {
+//            "SEND_INBOX_MSG_BY_ADMIN" -> inboxMsgByAdminView()
+//            else ->
+//        }
+//    }
+
+//    private fun inboxMsgByAdminView() {
+//        headlineCategory.text = getString(R.string.send_inbox_msg)
+//        submitBtn.text = getString(R.string.send)
+//        tipPdfTitle.hint = getString(R.string.msg_title)
+//        tipPdfDesc.hint = getString(R.string.msg_desc)
+//
+//    }
+
+    private fun pdfActivityView() {
         addPdfBinding.tvSelectedCategory.setOnClickListener {
             categoryPickDialog()
         }
@@ -91,13 +116,20 @@ class AddPdfActivity : AppCompatActivity() {
 
         if(bookTitle.isEmpty()){
             Toast.makeText(applicationContext, "Enter Book's title..", Toast.LENGTH_SHORT).show()
+            titlePDFTil.error = "Please type the book title"
         } else if(bookDesc.isEmpty()){
             Toast.makeText(applicationContext, "Enter Book's description..", Toast.LENGTH_SHORT).show()
-        }else if(bookCategory.isEmpty()){
+            descPDFTil.error = "Please type the book description"
+        }else if(bookCategory.isEmpty() || tvSelectedCategory.text == "Select Category"){
             Toast.makeText(applicationContext, "Select Book's category..", Toast.LENGTH_SHORT).show()
+            addPdfBinding.tvSelectedCategory.background = resources.getDrawable(R.drawable.round_outline_error)
+            tvSelectedCategory.setTextColor(getColor(R.color.profilePrimaryDark))
+            tvSelectedCategory.text = getString(R.string.error_select_category)
         } else if(pdfUri == null) {
-            Toast.makeText(applicationContext, "Pick PDF..", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "You've not attached any pdf file \n Kindly attach it by clicking top right corner icon", Toast.LENGTH_SHORT).show()
         } else {
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(500)
             uploadPdfToStorage()
         }
     }
@@ -109,7 +141,7 @@ class AddPdfActivity : AppCompatActivity() {
         progressDialog.show()
 
         val timestamp = System.currentTimeMillis()
-        val filePathAndName = "Books/$timestamp"
+        val filePathAndName = "Books/${bookCategory}/${bookTitle}"
         val storageRef = FirebaseStorage.getInstance().getReference(filePathAndName)
         storageRef.putFile(pdfUri!!)
             .addOnSuccessListener { taskSnapshot ->
@@ -180,6 +212,8 @@ class AddPdfActivity : AppCompatActivity() {
                 selectedCategoryId = categoryArrayList[which].id.toString()
 
                 addPdfBinding.tvSelectedCategory.text = selectedCategoryTitle
+                addPdfBinding.tvSelectedCategory.setTextColor(getColor(R.color.colorPrimaryDark))
+                addPdfBinding.tvSelectedCategory.background = resources.getDrawable(R.drawable.rounded_outline_enabled)
                 Log.d(TAG,"categoryPickDialog : SelectedCategory Id: $selectedCategoryId")
                 Log.d(TAG,"categoryPickDialog : SelectedCategory Title: $selectedCategoryTitle")
             }

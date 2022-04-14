@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_all_rounded_bg"
+    android:padding="@dimen/dp20">
+
+
+    <LinearLayout
+        android:id="@+id/toolBarEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/headlineCategory"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile"
+            android:gravity="center"
+            android:textColor="@color/profileEditTextColor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp10"
+            android:background="?attr/actionBarItemBackground"
+            android:padding="@dimen/dp5"
+            android:visibility="gone"
+            android:src="@drawable/ic_close" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBarEditProfile"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/imgLyt"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="@dimen/dp30">
+
+            <ImageView
+                android:id="@+id/imgProfileUpdate"
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/user_avatar_placeholder" />
+
+            <ImageButton
+                android:id="@+id/btnEditImg"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="@dimen/dp5"
+                android:scaleType="centerInside"
+                android:src="@drawable/edit_pencil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tipLytUpdateFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolBarEditProfile"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvUpdateFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="6dp"
+                android:hint="@string/full_name"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tipLytUpdateEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tipLytUpdateFullName"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvUpdateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_email_grey"
+                android:drawablePadding="6dp"
+                android:hint="@string/update_email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_below="@id/tipLytUpdateEmail"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp40"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_weight="1"
+            android:background="@drawable/login_btn_bg"
+            android:minHeight="50dp"
+            android:text="@string/common_google_play_services_update_button"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
